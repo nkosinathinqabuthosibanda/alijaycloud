@@ -1,0 +1,19 @@
+{
+	"name": "Alijay Cloud",
+	"short_name": "Alijay",
+	"description": "Alijay Cloud — engineered by Icon Industries",
+	"start_url": "../../",
+	"icons": [{
+		"src": "favicon-touch.png",
+		"type": "image/png",
+		"sizes": "180x180"
+	}, {
+		"src": "favicon-mask.svg",
+		"type": "image/svg+xml",
+		"sizes": "16x16"
+	}],
+	"display_override": ["minimal-ui"],
+	"display": "standalone",
+	"theme_color": "#0071e3",
+	"background_color": "#f5f5f7"
+}

@@ -1,0 +1,222 @@
+/**
+ * Alijay Cloud — Apple iCloud–inspired UI (theme overlay).
+ */
+
+:root {
+	--alijay-blue: #0071e3;
+	--alijay-blue-hover: #0077ed;
+	--alijay-surface: #f5f5f7;
+	--alijay-card: rgba(255, 255, 255, 0.82);
+	--alijay-text: #1d1d1f;
+	--alijay-muted: #86868b;
+	--alijay-border: rgba(0, 0, 0, 0.08);
+	--alijay-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+	--alijay-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.1);
+	--alijay-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Typography */
+#body-user,
+#body-settings,
+#body-login,
+#body-public {
+	font-family: var(--alijay-font) !important;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* —— Logged-in shell (iCloud: light chrome) —— */
+#body-user,
+#body-settings {
+	background-color: var(--alijay-surface) !important;
+}
+
+#body-user #header,
+#body-settings #header {
+	background: rgba(255, 255, 255, 0.78) !important;
+	backdrop-filter: saturate(180%) blur(20px);
+	-webkit-backdrop-filter: saturate(180%) blur(20px);
+	border-bottom: 1px solid var(--alijay-border);
+	box-shadow: none;
+	color: var(--alijay-text);
+}
+
+#body-user #header .logo-icon,
+#body-settings #header .logo-icon {
+	background-image: url('../img/logo-icon.svg');
+	filter: none;
+}
+
+#body-user #app-navigation,
+#body-settings #app-navigation {
+	background: rgba(255, 255, 255, 0.65) !important;
+	backdrop-filter: blur(16px);
+	border-inline-end: 1px solid var(--alijay-border);
+}
+
+#body-user #app-content,
+#body-settings #app-content {
+	background: var(--alijay-surface) !important;
+}
+
+/* Public share header */
+#body-public #header {
+	background: rgba(255, 255, 255, 0.9) !important;
+	backdrop-filter: saturate(180%) blur(20px);
+	border-bottom: 1px solid var(--alijay-border);
+	box-shadow: none;
+}
+
+#body-public #header .logo.logo-icon {
+	background-image: url('../img/logo-icon.svg');
+}
+
+/* —— Login / guest (soft sky gradient, frosted card) —— */
+#body-login,
+#body-public {
+	background-color: #e8f2fa !important;
+	background-image:
+		radial-gradient(ellipse 90% 60% at 50% -10%, rgba(0, 113, 227, 0.12) 0%, transparent 55%),
+		linear-gradient(180deg, #e8f2fa 0%, #f5f5f7 45%, #fafafa 100%) !important;
+	color: var(--alijay-text);
+}
+
+#body-login .guest-box,
+#body-public .guest-box {
+	background: var(--alijay-card) !important;
+	backdrop-filter: saturate(180%) blur(24px);
+	-webkit-backdrop-filter: saturate(180%) blur(24px);
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	border-radius: 18px !important;
+	box-shadow: var(--alijay-shadow-lg);
+	color: var(--alijay-text);
+}
+
+#body-login #header .logo {
+	background-image: url('../img/logo.svg');
+	width: 200px;
+	height: 52px;
+}
+
+/* Primary actions — iOS blue pill */
+.primary,
+input[type="submit"].primary,
+input[type="button"].primary,
+button.primary,
+.button.primary,
+.button-vue--vue-primary,
+.action-item.primary {
+	border-color: var(--alijay-blue) !important;
+	background: var(--alijay-blue) !important;
+	color: #fff !important;
+	border-radius: 980px !important;
+	font-weight: 500 !important;
+	box-shadow: none !important;
+}
+
+.primary:hover,
+input[type="submit"].primary:hover,
+button.primary:hover,
+.button.primary:hover,
+.button-vue--vue-primary:hover {
+	background: var(--alijay-blue-hover) !important;
+	border-color: var(--alijay-blue-hover) !important;
+}
+
+/* Secondary buttons */
+button,
+.button,
+input[type="button"],
+input[type="submit"]:not(.primary) {
+	border-radius: 980px;
+}
+
+/* Inputs */
+#body-login input[type="text"],
+#body-login input[type="password"],
+#body-login input[type="email"],
+#body-public input[type="text"],
+#body-public input[type="password"] {
+	border-radius: 10px;
+	border: 1px solid var(--alijay-border);
+	background: #fff;
+}
+
+#body-login input:focus,
+#body-login input:focus-visible,
+#body-public input:focus-visible {
+	border-color: var(--alijay-blue);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+}
+
+/* Logos */
+#header .logo,
+#firstrunwizard .logo {
+	background-image: url('../img/logo.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 200px;
+	height: 52px;
+}
+
+#header .logo-icon {
+	background-image: url('../img/logo-icon.svg');
+	width: 36px;
+	height: 36px;
+	background-size: contain;
+}
+
+/* Footer credit */
+.alijay-dev-credit {
+	display: block;
+	margin-top: 0.65rem;
+	font-size: 0.75rem;
+	color: var(--alijay-muted);
+	letter-spacing: 0.02em;
+}
+
+/* De-emphasize upstream promo links */
+.footer__legal-links a[href*="nextcloud.com"],
+.footer__simple-sign-up a[href*="nextcloud.com"],
+a[href*="apps.nextcloud.com"],
+a[href*="nextcloud.com/signup"] {
+	display: none !important;
+}
+
+/* Files list: cleaner rows */
+#body-user .files-list,
+#body-user .files-fileList {
+	--color-background-hover: rgba(0, 113, 227, 0.06);
+}
+
+#body-user .files-list__row:hover,
+#body-user tr:hover {
+	background: rgba(0, 113, 227, 0.05);
+}
+
+/* Modals & popovers */
+.modal-wrapper .modal-container,
+.popovermenu.open {
+	border-radius: 14px !important;
+	box-shadow: var(--alijay-shadow-lg);
+	border: 1px solid var(--alijay-border);
+}
+
+/* Dashboard widgets */
+#body-user #app-dashboard .dashboard-widget {
+	border-radius: 14px;
+	border: 1px solid var(--alijay-border);
+	box-shadow: var(--alijay-shadow);
+}
+
+/* Smooth UI */
+#body-user :is(button, .button, a.button, .action-item):not(:disabled) {
+	transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+#body-login :is(input, button, a):focus-visible,
+#body-public :is(input, button, a):focus-visible {
+	outline: 2px solid var(--alijay-blue);
+	outline-offset: 2px;
+}
